@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from './store/app-store.module';
+import { SetInitialUser } from './store/actions/auth.action';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'front';
+  title = 'ideas-app';
+
+  constructor(private store: Store<AppState>){
+    
+  }
+  
+  ngOnInit() {
+    this.store.dispatch(
+      new SetInitialUser()
+    )
+  }
 }

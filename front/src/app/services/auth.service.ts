@@ -11,7 +11,7 @@ import { mergeMap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private api: string = environment.api_server + '/auth';
+  private api: string = environment.api_server;
 
   constructor(private http: HttpClient) {}
 
@@ -23,6 +23,14 @@ export class AuthService {
         return of(user);
       })
     );
+  }
+
+  login(data: AuthDTO){
+    return this.auth('login', data)
+  }
+
+  register(data: AuthDTO){
+    return this.auth('register', data)
   }
 
   whoami(): Observable<User> {

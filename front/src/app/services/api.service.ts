@@ -11,7 +11,7 @@ import { Idea, IdeaDTO } from '@app/models/idea';
   providedIn: 'root'
 })
 export class ApiService {
-  private api: string = environment.api_server + '/api';
+  private api: string = environment.api_server;
 
   constructor(private http: HttpClient, private auth: AuthService) {}
 
