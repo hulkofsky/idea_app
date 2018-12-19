@@ -17,6 +17,7 @@ export const errorReducer: (state: ErrorState, action: Action) => ErrorState = (
             return {...state, error: action.payload}
         case ErrorActionTypes.REMOVE_ERROR:
             return {...state, error: null}
-        default: return state
+        default: 
+            return state
     }
 }
